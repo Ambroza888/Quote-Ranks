@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<style>
+
+</style>
+<body>
+  <div *ngIf='author' class="container">
+      <button [routerLink]="['/createQ',authorID]">Add a Quote</button>
+    <button [routerLink]="['/']">Home</button>
+    <div class="col-10">
+      <p>We have quotes by: {{authorName}}</p>
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Quote</th>
+              <th scope="col">Votes</th>
+              <th scope="col">Action Availlable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let i of author'>
+              <td>{{i.quote}}</td>
+              <td>{{i.votes}}</td>
+              <td class="text-center"><button class="mr-2" (click)='voteUP(i._id)'>Vote up</button><button class="mr-2"(click)='voteDown(i._id)'>Vote down</button><button (click)='deleteQ(i._id)'>Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
